@@ -1,36 +1,38 @@
-### monitoring_tools
-## Overview:
-The script monitors multiple git repositories for changes. It fetches the latest updates from the remote repositories and compares them with the local version to inform you if your local repo is up-to-date or behind the remote repo.
 
-# The two repositories used for monitoring are:
+### `monitoring_tools`
 
-Marked.js Repository
-Advent of Code 2019
+## Overview
+The script provides real-time monitoring of multiple git repositories to track changes. By comparing local versions to their remote counterparts, the script can indicate if a local repo is current or if it's lagging behind.
 
-## How It Works:
-# Repository Information:
+## Repositories Monitored:
+- [Marked.js Repository](https://github.com/markedjs/marked)
+- [Advent of Code 2019](https://github.com/marymaksemos/advent_of_code_2019)
 
-Repositories are detailed in the repos_info list. Each entry in the list contains:
-path: The local path to the repository.
-branch: The branch to monitor.
-url: The URL to the GitHub repository for quick access and reference.
+## Features
 
+### 1. Repository Information
+The `repos_info` list holds the details of all repositories under surveillance. Every entry has:
+- `path`: Local directory of the repository.
+- `branch`: The targeted branch for monitoring.
+- `url`: Direct URL to the GitHub repository.
 
-## Monitoring Function - monitor_repo:
+### 2. Monitoring Function (`monitor_repo`)
 
 For each repository mentioned in repos_info, the script:
-Retrieves the latest updates using git fetch.
-Determines how many commits the local repository is behind the remote one.
-Identifies any files that differ between the local and remote repositories.
-The status of each repository, including its URL, is displayed in the console.
-Continuous Monitoring:
+- Retrieves the latest updates using git fetch.
+- Determines how many commits the local repository is behind the remote one.
+- Identifies any files that differ between the local and remote repositories.
+- The status of each repository, including its URL, is displayed in the console.
+
+### 3.Continuous Monitoring:
 
 The script persistently monitors the repositories. After inspecting all repositories,
  it pauses for 60 seconds before the next cycle.
 
-## Output:
-Expect outputs such as:
 
-"Repo ./path_to_repo (URL: https://github.com/user/repo_name) is up-to-date." when there are no changes.
-"Repo ./path_to_repo (URL: https://github.com/user/repo_name) is behind by X commits." if the local repo lags.
-Lists of changed files if there are discrepancies between local and remote versions.
+
+## Output
+Expect outputs such as:
+- `"Repo ./path_to_repo (URL: https://github.com/user/repo_name) is up-to-date."` when congruence is found between local and remote repositories.
+- `"Repo ./path_to_repo (URL: https://github.com/user/repo_name) is behind by X commits."` indicating the local repo needs updating.
+- A Lists of changed files if there are discrepancies between local and remote versions.
