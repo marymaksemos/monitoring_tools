@@ -2,13 +2,22 @@ import subprocess
 import time
 
 repos_info = [
-    {'path': './marked', 'branch': 'master'},
-    {'path': './advent_of_code_2019', 'branch': 'main'}
+    {
+        'path': './marked', 
+        'branch': 'master', 
+        'url': 'https://github.com/markedjs/marked'
+    },
+    {
+        'path': './advent_of_code_2019', 
+        'branch': 'main',
+        'url': 'https://github.com/marymaksemos/advent_of_code_2019'
+    }
 ]
 
 def monitor_repo(repo_info):
     repo_path = repo_info['path']
     branch_name = repo_info['branch']
+    repo_url = repo_info['url']
 
     subprocess.run(['git', 'fetch'], cwd=repo_path)
 
@@ -16,9 +25,9 @@ def monitor_repo(repo_info):
     try:
         diff = int(result_commits.stdout.strip())
         if diff:
-            print(f"Repo {repo_path} is behind by {diff} commits.")
+            print(f"Repo {repo_path} (URL: {repo_url}) is behind by {diff} commits.")
         else:
-            print(f"Repo {repo_path} is up-to-date.")
+            print(f"Repo {repo_path} (URL: {repo_url}) is up-to-date.")
     except ValueError:
         print(f"Couldn't parse the number of commits behind for repo {repo_path}.")
 
