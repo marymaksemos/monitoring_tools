@@ -1,12 +1,12 @@
 
-### `monitoring_tools`
+# `monitoring_tools`
 
 ## Overview
 The script provides real-time monitoring of multiple git repositories to track changes. By comparing local versions to their remote counterparts, the script can indicate if a local repo is current or if it's lagging behind.
 
 ## Repositories Monitored:
-- [Marked.js Repository](https://github.com/markedjs/marked)
-- [Advent of Code 2019](https://github.com/marymaksemos/advent_of_code_2019)
+- [thefuck](https://github.com/nvbn/thefuck)
+- [kubernetes](https://github.com/kubernetes/kubernetes)
 
 ## Features
 
@@ -27,7 +27,7 @@ For each repository mentioned in repos_info, the script:
 ### 3.Continuous Monitoring:
 
 The script persistently monitors the repositories. After inspecting all repositories,
- it pauses for 60 seconds before the next cycle.
+ it pauses for 15 min before the next cycle.
 
 
 

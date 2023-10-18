@@ -3,14 +3,14 @@ import time
 
 repos_info = [
     {
-        'path': './marked', 
+        'path': './thefuck', 
         'branch': 'master', 
-        'url': 'https://github.com/markedjs/marked'
+        'url': 'https://github.com/nvbn/thefuck'
     },
     {
-        'path': './advent_of_code_2019', 
-        'branch': 'main',
-        'url': 'https://github.com/marymaksemos/advent_of_code_2019'
+        'path': './kubernetes', 
+        'branch': 'master',
+        'url': 'https://github.com/kubernetes/kubernetes'
     }
 ]
 
@@ -41,4 +41,4 @@ def monitor_repo(repo_info):
 while True:
     for repo_info in repos_info:
         monitor_repo(repo_info)
-    time.sleep(60)
+    time.sleep(60*15)
